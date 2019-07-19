@@ -12,7 +12,7 @@ known = Session.SPRING_SECURITY_CONTEXT??
     >
     <#else>
     <#assign
-    name = "unknown"
+    name = "Гость"
     isAdmin = false
     isEditor = false
     currentUserId = -1

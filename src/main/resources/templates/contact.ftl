@@ -1,6 +1,6 @@
 <#import "parts/common.ftl" as c>
 <@c.page>
-    <header class="intro-header" style="background-image: url('img/caralog12.jpg')">
+    <header class="intro-header" style="background-image: url('static/img/caralog12.jpg')">
         <div class="container overlay">
             <div class="row">
                 <div class="col-lg-6 col-lg-offset-3 col-md-8 col-md-offset-2">

@@ -1,5 +1,5 @@
 <#macro login path isRegisterForm>
-<div class="container">
+    <div class="container">
     <form action="${path}" method="post">
     <div class="form-group row">
         <label class="col-sm-2 col-form-label">Логин :</label>
@@ -55,23 +55,23 @@
         </div>
         </div>
     </#if>
+    <input type="hidden" name="_csrf" value="${_csrf.token}" />
 
-    <#if !isRegisterForm><a href="/registration">Регистрация</a></#if>
-    <button type="submit" class="btn btn-primary"><#if isRegisterForm>Создать<#else>Войти</#if></button>
+    <button class="btn btn-primary" type="submit"><#if isRegisterForm>Создать<#else>Войти</#if></button>
 </form>
 </div>
 </#macro>
 
 <#macro login1>
-    <form action="/logout" method="post">
-
+    <form action="/login" method="post">
+    <input type="hidden" name="_csrf" value="${_csrf.token}" />
     <button class="btn btn-primary" type="submit">Войти</button>
 </form>
 </#macro>
 
 <#macro logout>
     <form action="/logout" method="post">
-
+    <input type="hidden" name="_csrf" value="${_csrf.token}" />
     <button class="btn btn-primary" type="submit">Выйти</button>
 </form>
 

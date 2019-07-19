@@ -1,43 +1,44 @@
 
 <#include "security.ftl">
 <#import "login.ftl" as l>
-<nav class="navbar navbar-default navbar-custom navbar-fixed-top navbar-right navbar-expand-lg">
-        <div class="container-fluid">
-            <!-- Brand and toggle get grouped for better mobile display -->
-<div class="navbar-header page-scroll">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
-                    <span class="sr-only">Toggle navigation</span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <a class="navbar-brand" href="/">Karim-A</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarNav">
+    <ul class="navbar-nav">
+      <li class="nav-item active">
+        <a class="nav-link" href="/">Домашняя страница <span class="sr-only">(current)</span></a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="/foods">Продукты</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="/contact">Контакты</a>
+      </li>
 
-            </div>
+     <#if isAdmin>
+       <li class="nav-item">
+         <a href="/user" class="nav-link">Список пользователей</a>
+       </li>
+	 </#if>
 
-            <!-- Collect the nav links, forms, and other content for toggling -->
-<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-                <ul class="nav navbar-nav navbar-right" style="margin-right:10%">
-                    <li>
-                        <a href="/">Домашняя страница</a>
-                    </li>
-                    <li>
-                        <a href="/about">Продукты</a>
-                    </li>
-                    <li>
-                        <a href="/contact">Контакты</a>
-                    </li>
-                </ul>
-            </div>
-            <!-- /.navbar-collapse -->
+    <#if isEditor>
+      <li class="nav-item">
+        <a class="nav-link" href="/user-messages/${currentUserId}">Мои статьи</a>
+      </li>
+    </#if>
 
-        <!-- /.container -->
+    </ul>
+  </div>
 
 
-
-		<div class="text">${name}</div>
+		<div class="text"> ${name}</div>
 	      <#if user??>
     <@l.logout />
 </#if>
 <#if !user??><@l.login1 /></#if>
-</div>
+
 	  </nav>
+</div>
